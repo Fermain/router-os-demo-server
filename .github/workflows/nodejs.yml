@@ -1,0 +1,38 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm serve
+      env:
+        CI: true
+        MONGODB_URL: mongodb+srv://hDdh93y27s7lrdJG:lln73kUrqIip3bP6@routeros-r8rsa.mongodb.net/demo?retryWrites=true&w=majority
+        MONGODB_OPTIONS_USER: hDdh93y27s7lrdJG
+        MONGODB_OPTIONS_PASS: lln73kUrqIip3bP6
+        ROUTEROS_HOST: ec2-3-120-157-169.eu-central-1.compute.amazonaws.com
+        ROUTEROS_USER: demo
+        ROUTEROS_PASSWORD: lkejdhe9*&^&(*%dugyjsh
+        PORT: 8080
