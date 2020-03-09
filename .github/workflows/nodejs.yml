@@ -29,10 +29,10 @@ jobs:
     - run: npm serve
       env:
         CI: true
-        MONGODB_URL: mongodb+srv://hDdh93y27s7lrdJG:lln73kUrqIip3bP6@routeros-r8rsa.mongodb.net/demo?retryWrites=true&w=majority
-        MONGODB_OPTIONS_USER: hDdh93y27s7lrdJG
-        MONGODB_OPTIONS_PASS: lln73kUrqIip3bP6
+        MONGODB_URL: ${{ secrets.MONGODB_URL }}
+        MONGODB_OPTIONS_USER: ${{ secrets.MONGODB_OPTIONS_USER }}
+        MONGODB_OPTIONS_PASS: ${{ secrets.MONGODB_OPTIONS_PASS }}
         ROUTEROS_HOST: ec2-3-120-157-169.eu-central-1.compute.amazonaws.com
         ROUTEROS_USER: demo
-        ROUTEROS_PASSWORD: lkejdhe9*&^&(*%dugyjsh
+        ROUTEROS_PASSWORD: ${{ secrets.ROUTEROS_PASSWORD }}
         PORT: 8080
