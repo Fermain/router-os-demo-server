@@ -1,11 +1,12 @@
 {
-  "name": "routeros-demo",
-  "version": "0.1.0",
+  "name": "router-os-demo-server",
+  "version": "1.0.0",
   "description": "",
   "main": "./dist/server.js",
   "scripts": {
     "serve": "node ./dist/src/server.js",
     "watch": "tsc --watch | nodemon -L ./dist/server.js --watch dist",
+    "build": "tsc",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --fix"
   },
   "repository": {
