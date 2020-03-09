@@ -10,6 +10,11 @@ npm install
 npm run watch
 ```
 
+### Compiles for production
+```
+npm run build
+```
+
 ### Compiles and starts for production
 ```
 npm run start
